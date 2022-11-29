@@ -103,4 +103,9 @@ class App extends Model
         return $this->query($query, [$id])->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function update_user($list)
+    {
+        $query="update users_tbl set birthday=? ,edu_lvl=?,field=?,bio=?,email=?,pic=?,resume=?,upgraded='1' where phone=? ";
+        $this->execute($query,array_values($list));
+    }
 }
